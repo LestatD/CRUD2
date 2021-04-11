@@ -89,7 +89,7 @@ void menu()                     //Menu Principal.
     while (opcao != 0);
 }
 
-void cadastro()
+void cadastro()                     //Entrando na função cadastro
 {
     char artista[50];
     char caixa_de_texto[500];
@@ -109,7 +109,7 @@ void cadastro()
 
 
 
-    do{
+    do{                             //Cadastrando a carta
         system("cls");
         fflush(stdin);
 
@@ -153,9 +153,9 @@ void cadastro()
         printf("\nDigite o preço médio da carta R$: ");
         gets(preco_medio);
 
-        for (int i = 0; i < TAMANHO; ++i)
+        for (int i = 0; i < TAMANHO; ++i)           //Localizando posição para cadastro
         {
-            if (carta[i].ativo==0)
+            if (carta[i].ativo==0)                  //Vendo se a posição está vazia
             {
                 printf("\nCarta cadastrada na posição: %d\n", i+1);
 
@@ -188,9 +188,9 @@ void lista()
     fflush(stdin);
     printf("\nLista de cartas cadastradas: \n\n");
 
-    for (int i = 0; i < TAMANHO; i++)
+    for (int i = 0; i < TAMANHO; i++)               //Percorre o cadastros
     {
-        if (carta[i].ativo==1)
+        if (carta[i].ativo==1)                      //Caso a posição esteja sendo ocupada ele imprime
         {
             printf("\nPosição de cadastro: %d\n\n", i+1);
             printf("Nome: %s\n", carta[i].titulo);
@@ -222,12 +222,14 @@ void editar()
 
     int i;
 
+    //Usuário escolhe a posição onde deseja editar os dados
+
     printf("\nDigite o número da posição da carta que você deseja substituir os dados armazendos.\n");
     printf("Obs. Verificar a posição de cada carta já armazenada na opção 'lista' do menu principal\n\n");
     scanf("%d", &i);
     i--;
 
-    if(carta[i].ativo==1)
+    if(carta[i].ativo==1)               //Caso a posição esteja sendo ocupada ele edita.
     {
 
         fflush(stdin);
@@ -277,7 +279,9 @@ void editar()
 
     }
     else
-    {              //Caso não exista carta cadastrada na posição digitada, segue uma mensagem informando como proceder.
+    {
+        //Caso não exista carta cadastrada na posição digitada, segue uma mensagem informando como proceder.
+
         printf("\n\nNão existe carta cadastrada na posição %d. Por favor verifique o valor correto e tente novamente.\n",i+1);
         getchar();
         getchar();
